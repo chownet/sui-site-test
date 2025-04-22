@@ -4,13 +4,6 @@
     src: url('fonts/MeltingFont.ttf') format('truetype');
 }
 
-@font-face {
-    font-family: 'Inflate';
-    src: url('fonts/InflateptxChrome-X3oPg.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
 :root {
     --pastel-pink: #ffd1dc;
     --pastel-purple: #e6e6fa;
@@ -343,8 +336,4 @@ body {
     100% {
         text-shadow: 2px 2px 0 var(--pastel-purple);
     }
-}
-
-h1, h2, h3, h4, h5, h6, .card-header {
-    font-family: 'Inflate', sans-serif;
 }
