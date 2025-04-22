@@ -1,0 +1,339 @@
+/* Y2K Inspired Styles */
+@font-face {
+    font-family: 'MeltingFont';
+    src: url('fonts/MeltingFont.ttf') format('truetype');
+}
+
+:root {
+    --pastel-pink: #ffd1dc;
+    --pastel-purple: #e6e6fa;
+    --pastel-blue: #b5d5ff;
+    --pastel-green: #d4f1d4;
+    --pastel-yellow: #fffacd;
+    --soft-gray: #f0f0f0;
+    --light-gray: #e0e0e0;
+    --medium-gray: #c0c0c0;
+    --dark-gray: #808080;
+    --white: #ffffff;
+    --black: #000000;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', cursive;
+    background: linear-gradient(135deg, var(--pastel-purple), var(--pastel-blue));
+    color: var(--dark-gray);
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/png;base64,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');
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.navbar {
+    background: var(--soft-gray);
+    padding: 1rem;
+    border-bottom: 2px solid var(--pastel-pink);
+    position: relative;
+    z-index: 2;
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 2rem;
+    color: var(--pastel-purple);
+    text-shadow: 2px 2px 0 var(--pastel-blue);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--dark-gray);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--pastel-pink);
+    text-shadow: 0 0 5px var(--pastel-pink);
+}
+
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-family: 'MeltingFont', sans-serif;
+    font-size: 48px;
+    color: var(--pastel-pink);
+    text-shadow: 3px 3px 0 var(--pastel-purple);
+    margin-bottom: 1rem;
+    animation: glitch 2s infinite;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--dark-gray);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Base container styles */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    position: relative;
+    overflow: visible;
+}
+
+.main-content {
+    width: 100%;
+    position: relative;
+    overflow: visible;
+}
+
+.section {
+    width: 100%;
+    position: relative;
+    overflow: visible;
+    margin-bottom: 3rem;
+}
+
+/* Card grid layout */
+.launch-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    width: 100%;
+    gap: 1rem;
+    position: relative;
+    overflow: visible;
+    margin-bottom: 3rem;
+}
+
+.launch-options > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    width: 100%;
+    gap: 1rem;
+    position: relative;
+    overflow: visible;
+}
+
+.option-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    width: 100%;
+    background: var(--soft-gray);
+    border: 2px solid var(--light-gray);
+    border-radius: 0;
+    box-shadow: 2px 2px 0 var(--medium-gray);
+    position: relative;
+    overflow: visible;
+}
+
+.card-header {
+    background: linear-gradient(to right, var(--pastel-pink), var(--pastel-purple));
+    padding: 0.8rem 1rem;
+    border-bottom: 2px solid var(--light-gray);
+    cursor: pointer;
+    width: 100%;
+    position: relative;
+}
+
+.card-content {
+    display: none;
+    padding: 1rem;
+    background: var(--soft-gray);
+    border-top: 2px solid var(--light-gray);
+    width: 100%;
+    position: relative;
+    overflow: visible;
+}
+
+.option-card.expanded .card-content {
+    display: block;
+    max-height: none;
+    overflow: visible;
+    margin-bottom: 3rem;
+}
+
+.step {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: var(--white);
+    border: 1px solid var(--light-gray);
+    width: 100%;
+    position: relative;
+    overflow: visible;
+}
+
+.step:last-child {
+    margin-bottom: 0;
+}
+
+/* Mobile-first media queries */
+@media (max-width: 768px) {
+    .launch-options {
+        grid-template-columns: 1fr;
+        padding: 0.5rem;
+        gap: 1rem;
+    }
+
+    .launch-options > div {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .option-card {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .card-content {
+        padding: 0.8rem;
+    }
+
+    .step {
+        padding: 0.8rem;
+    }
+
+    /* Force cards to be expanded on mobile */
+    .option-card .card-content {
+        display: block !important;
+        max-height: none;
+        overflow: visible;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .launch-options {
+        padding: 0.5rem;
+        gap: 0.8rem;
+    }
+
+    .launch-options > div {
+        gap: 0.8rem;
+    }
+
+    .card-header {
+        padding: 0.6rem 0.8rem;
+    }
+
+    .card-content {
+        padding: 0.6rem;
+    }
+
+    .step {
+        padding: 0.6rem;
+    }
+}
+
+/* iOS Safari Specific Fixes */
+@supports (-webkit-touch-callout: none) {
+    body {
+        -webkit-overflow-scrolling: touch;
+        min-height: -webkit-fill-available;
+    }
+
+    .launch-options {
+        -webkit-overflow-scrolling: touch;
+        overflow: visible;
+    }
+
+    .option-card {
+        -webkit-overflow-scrolling: touch;
+        overflow: visible;
+    }
+
+    .card-content {
+        -webkit-overflow-scrolling: touch;
+        overflow: visible;
+    }
+
+    .step {
+        overflow: visible;
+    }
+}
+
+/* Ensure proper spacing between sections */
+.launch-options > div:not(:last-child) {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--pastel-pink);
+}
+
+/* Fix for any potential overflow issues */
+* {
+    box-sizing: border-box;
+}
+
+/* Ensure proper stacking context */
+.launch-options > div {
+    position: relative;
+    z-index: 1;
+}
+
+.option-card {
+    position: relative;
+    z-index: 2;
+}
+
+.card-content {
+    position: relative;
+    z-index: 3;
+}
+
+.step {
+    position: relative;
+    z-index: 4;
+}
+
+/* Y2K Animation Effects */
+@keyframes glitch {
+    0% {
+        text-shadow: 2px 2px 0 var(--pastel-pink);
+    }
+    25% {
+        text-shadow: -2px -2px 0 var(--pastel-purple);
+    }
+    50% {
+        text-shadow: 2px -2px 0 var(--pastel-blue);
+    }
+    75% {
+        text-shadow: -2px 2px 0 var(--pastel-pink);
+    }
+    100% {
+        text-shadow: 2px 2px 0 var(--pastel-purple);
+    }
+}

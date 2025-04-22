@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launch Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Inflate';
+            src: url('fonts/InflateptxChrome-X3oPg.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #3b82f6;
+            --background: #f8fafc;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --sky-blue: #87CEEB;
+            --cloud-white: rgba(255, 255, 255, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to bottom, var(--sky-blue), #B0E0E6);
+            color: var(--text);
+            line-height: 1.5;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .clouds {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 20%, var(--cloud-white) 0%, transparent 50%),
+                radial-gradient(circle at 60% 40%, var(--cloud-white) 0%, transparent 50%),
+                radial-gradient(circle at 80% 60%, var(--cloud-white) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, var(--cloud-white) 0%, transparent 50%);
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Inflate', sans-serif;
+            font-size: 1.8rem;
+            font-weight: normal;
+            color: var(--primary);
+            letter-spacing: 0.05em;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: var(--sky-blue);
+            color: var(--text);
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cloud {
+            position: absolute;
+            background: white;
+            opacity: 0.9;
+            z-index: 0;
+            filter: blur(3px);
+            mix-blend-mode: overlay;
+        }
+
+        /* Cumulus Cloud */
+        .cloud-1 {
+            width: 300px;
+            height: 100px;
+            top: 15%;
+            left: 50%;
+            border-radius: 100px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0.4) 100%);
+            box-shadow: 
+                0 0 30px rgba(255, 255, 255, 0.8),
+                0 0 60px rgba(255, 255, 255, 0.6);
+            animation: float1 40s linear infinite;
+        }
+
+        .cloud-1::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0.4) 100%);
+            border-radius: 60px;
+            top: -60px;
+            left: 40px;
+            box-shadow: 
+                0 0 30px rgba(255, 255, 255, 0.8),
+                0 0 60px rgba(255, 255, 255, 0.6);
+            filter: blur(2px);
+        }
+
+        .cloud-1::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0.4) 100%);
+            border-radius: 50px;
+            top: -50px;
+            right: 40px;
+            box-shadow: 
+                0 0 30px rgba(255, 255, 255, 0.8),
+                0 0 60px rgba(255, 255, 255, 0.6);
+            filter: blur(2px);
+        }
+
+        /* Stratus Cloud */
+        .cloud-2 {
+            width: 400px;
+            height: 60px;
+            top: 30%;
+            left: 120%;
+            border-radius: 30px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.3) 100%);
+            box-shadow: 
+                0 0 40px rgba(255, 255, 255, 0.7),
+                0 0 80px rgba(255, 255, 255, 0.5);
+            animation: float2 45s linear infinite;
+        }
+
+        .cloud-2::before {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 70px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.3) 100%);
+            border-radius: 35px;
+            top: -35px;
+            left: 50px;
+            box-shadow: 
+                0 0 40px rgba(255, 255, 255, 0.7),
+                0 0 80px rgba(255, 255, 255, 0.5);
+            filter: blur(2px);
+        }
+
+        .cloud-2::after {
+            content: '';
+            position: absolute;
+            width: 130px;
+            height: 65px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.3) 100%);
+            border-radius: 32px;
+            top: -32px;
+            right: 50px;
+            box-shadow: 
+                0 0 40px rgba(255, 255, 255, 0.7),
+                0 0 80px rgba(255, 255, 255, 0.5);
+            filter: blur(2px);
+        }
+
+        /* Cirrus Cloud */
+        .cloud-3 {
+            width: 250px;
+            height: 30px;
+            top: 45%;
+            left: -20%;
+            border-radius: 15px;
+            opacity: 0.7;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.7) 0%,
+                rgba(255, 255, 255, 0.5) 50%,
+                rgba(255, 255, 255, 0.2) 100%);
+            box-shadow: 
+                0 0 20px rgba(255, 255, 255, 0.6),
+                0 0 40px rgba(255, 255, 255, 0.4);
+            animation: float3 42s linear infinite;
+        }
+
+        .cloud-3::before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 20px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.7) 0%,
+                rgba(255, 255, 255, 0.5) 50%,
+                rgba(255, 255, 255, 0.2) 100%);
+            border-radius: 10px;
+            top: -10px;
+            left: 40px;
+            opacity: 0.7;
+            box-shadow: 
+                0 0 20px rgba(255, 255, 255, 0.6),
+                0 0 40px rgba(255, 255, 255, 0.4);
+            filter: blur(2px);
+        }
+
+        .cloud-3::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 18px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.7) 0%,
+                rgba(255, 255, 255, 0.5) 50%,
+                rgba(255, 255, 255, 0.2) 100%);
+            border-radius: 9px;
+            top: -9px;
+            right: 40px;
+            opacity: 0.7;
+            box-shadow: 
+                0 0 20px rgba(255, 255, 255, 0.6),
+                0 0 40px rgba(255, 255, 255, 0.4);
+            filter: blur(2px);
+        }
+
+        /* Cumulonimbus Cloud */
+        .cloud-4 {
+            width: 220px;
+            height: 120px;
+            top: 60%;
+            left: 110%;
+            border-radius: 40px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0.4) 100%);
+            box-shadow: 
+                0 0 35px rgba(255, 255, 255, 0.8),
+                0 0 70px rgba(255, 255, 255, 0.6);
+            animation: float4 38s linear infinite;
+        }
+
+        .cloud-4::before {
+            content: '';
+            position: absolute;
+            width: 90px;
+            height: 100px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0.4) 100%);
+            border-radius: 45px;
+            top: -50px;
+            left: 30px;
+            box-shadow: 
+                0 0 35px rgba(255, 255, 255, 0.8),
+                0 0 70px rgba(255, 255, 255, 0.6);
+            filter: blur(2px);
+        }
+
+        .cloud-4::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 90px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0.4) 100%);
+            border-radius: 40px;
+            top: -45px;
+            right: 30px;
+            box-shadow: 
+                0 0 35px rgba(255, 255, 255, 0.8),
+                0 0 70px rgba(255, 255, 255, 0.6);
+            filter: blur(2px);
+        }
+
+        /* Altocumulus Cloud */
+        .cloud-5 {
+            width: 280px;
+            height: 80px;
+            top: 25%;
+            left: 50%;
+            border-radius: 40px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.3) 100%);
+            box-shadow: 
+                0 0 30px rgba(255, 255, 255, 0.7),
+                0 0 60px rgba(255, 255, 255, 0.5);
+            animation: float5 43s linear infinite;
+        }
+
+        .cloud-5::before {
+            content: '';
+            position: absolute;
+            width: 110px;
+            height: 70px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.3) 100%);
+            border-radius: 35px;
+            top: -35px;
+            left: 45px;
+            box-shadow: 
+                0 0 30px rgba(255, 255, 255, 0.7),
+                0 0 60px rgba(255, 255, 255, 0.5);
+            filter: blur(2px);
+        }
+
+        .cloud-5::after {
+            content: '';
+            position: absolute;
+            width: 90px;
+            height: 65px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.3) 100%);
+            border-radius: 32px;
+            top: -32px;
+            right: 45px;
+            box-shadow: 
+                0 0 30px rgba(255, 255, 255, 0.7),
+                0 0 60px rgba(255, 255, 255, 0.5);
+            filter: blur(2px);
+        }
+
+        /* Stratocumulus Cloud */
+        .cloud-6 {
+            width: 350px;
+            height: 70px;
+            top: 75%;
+            left: 115%;
+            border-radius: 35px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.3) 100%);
+            box-shadow: 
+                0 0 35px rgba(255, 255, 255, 0.7),
+                0 0 70px rgba(255, 255, 255, 0.5);
+            animation: float6 41s linear infinite;
+        }
+
+        .cloud-6::before {
+            content: '';
+            position: absolute;
+            width: 130px;
+            height: 50px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.3) 100%);
+            border-radius: 25px;
+            top: -25px;
+            left: 50px;
+            box-shadow: 
+                0 0 35px rgba(255, 255, 255, 0.7),
+                0 0 70px rgba(255, 255, 255, 0.5);
+            filter: blur(2px);
+        }
+
+        .cloud-6::after {
+            content: '';
+            position: absolute;
+            width: 110px;
+            height: 45px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.3) 100%);
+            border-radius: 22px;
+            top: -22px;
+            right: 50px;
+            box-shadow: 
+                0 0 35px rgba(255, 255, 255, 0.7),
+                0 0 70px rgba(255, 255, 255, 0.5);
+            filter: blur(2px);
+        }
+
+        /* Nimbostratus Cloud */
+        .cloud-7 {
+            width: 300px;
+            height: 90px;
+            top: 10%;
+            left: -35%;
+            border-radius: 45px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0.4) 100%);
+            box-shadow: 
+                0 0 40px rgba(255, 255, 255, 0.8),
+                0 0 80px rgba(255, 255, 255, 0.6);
+            animation: float7 39s linear infinite;
+        }
+
+        .cloud-7::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 80px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0.4) 100%);
+            border-radius: 40px;
+            top: -40px;
+            left: 45px;
+            box-shadow: 
+                0 0 40px rgba(255, 255, 255, 0.8),
+                0 0 80px rgba(255, 255, 255, 0.6);
+            filter: blur(2px);
+        }
+
+        .cloud-7::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 70px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0.4) 100%);
+            border-radius: 35px;
+            top: -35px;
+            right: 45px;
+            box-shadow: 
+                0 0 40px rgba(255, 255, 255, 0.8),
+                0 0 80px rgba(255, 255, 255, 0.6);
+            filter: blur(2px);
+        }
+
+        /* Cirrocumulus Cloud */
+        .cloud-8 {
+            width: 220px;
+            height: 40px;
+            top: 50%;
+            left: 125%;
+            border-radius: 20px;
+            opacity: 0.75;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.7) 0%,
+                rgba(255, 255, 255, 0.5) 50%,
+                rgba(255, 255, 255, 0.2) 100%);
+            box-shadow: 
+                0 0 25px rgba(255, 255, 255, 0.6),
+                0 0 50px rgba(255, 255, 255, 0.4);
+            animation: float8 44s linear infinite;
+        }
+
+        .cloud-8::before {
+            content: '';
+            position: absolute;
+            width: 90px;
+            height: 35px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.7) 0%,
+                rgba(255, 255, 255, 0.5) 50%,
+                rgba(255, 255, 255, 0.2) 100%);
+            border-radius: 17px;
+            top: -17px;
+            left: 35px;
+            opacity: 0.75;
+            box-shadow: 
+                0 0 25px rgba(255, 255, 255, 0.6),
+                0 0 50px rgba(255, 255, 255, 0.4);
+            filter: blur(2px);
+        }
+
+        .cloud-8::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 30px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.7) 0%,
+                rgba(255, 255, 255, 0.5) 50%,
+                rgba(255, 255, 255, 0.2) 100%);
+            border-radius: 15px;
+            top: -15px;
+            right: 35px;
+            opacity: 0.75;
+            box-shadow: 
+                0 0 25px rgba(255, 255, 255, 0.6),
+                0 0 50px rgba(255, 255, 255, 0.4);
+            filter: blur(2px);
+        }
+
+        /* Altostratus Cloud */
+        .cloud-9 {
+            width: 320px;
+            height: 50px;
+            top: 20%;
+            left: -25%;
+            border-radius: 25px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.3) 100%);
+            box-shadow: 
+                0 0 35px rgba(255, 255, 255, 0.7),
+                0 0 70px rgba(255, 255, 255, 0.5);
+            animation: float9 46s linear infinite;
+        }
+
+        .cloud-9::before {
+            content: '';
+            position: absolute;
+            width: 130px;
+            height: 45px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.3) 100%);
+            border-radius: 22px;
+            top: -22px;
+            left: 50px;
+            box-shadow: 
+                0 0 35px rgba(255, 255, 255, 0.7),
+                0 0 70px rgba(255, 255, 255, 0.5);
+            filter: blur(2px);
+        }
+
+        .cloud-9::after {
+            content: '';
+            position: absolute;
+            width: 110px;
+            height: 40px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.3) 100%);
+            border-radius: 20px;
+            top: -20px;
+            right: 50px;
+            box-shadow: 
+                0 0 35px rgba(255, 255, 255, 0.7),
+                0 0 70px rgba(255, 255, 255, 0.5);
+            filter: blur(2px);
+        }
+
+        /* Mammatus Cloud */
+        .cloud-10 {
+            width: 280px;
+            height: 110px;
+            top: 40%;
+            left: 130%;
+            border-radius: 55px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0.4) 100%);
+            box-shadow: 
+                0 0 40px rgba(255, 255, 255, 0.8),
+                0 0 80px rgba(255, 255, 255, 0.6);
+            animation: float10 37s linear infinite;
+        }
+
+        .cloud-10::before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 90px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0.4) 100%);
+            border-radius: 45px;
+            top: -45px;
+            left: 40px;
+            box-shadow: 
+                0 0 40px rgba(255, 255, 255, 0.8),
+                0 0 80px rgba(255, 255, 255, 0.6);
+            filter: blur(2px);
+        }
+
+        .cloud-10::after {
+            content: '';
+            position: absolute;
+            width: 90px;
+            height: 80px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0.4) 100%);
+            border-radius: 40px;
+            top: -40px;
+            right: 40px;
+            box-shadow: 
+                0 0 40px rgba(255, 255, 255, 0.8),
+                0 0 80px rgba(255, 255, 255, 0.6);
+            filter: blur(2px);
+        }
+
+        /* Lenticular Cloud */
+        .cloud-11 {
+            width: 240px;
+            height: 60px;
+            top: 65%;
+            left: -30%;
+            border-radius: 30px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.3) 100%);
+            box-shadow: 
+                0 0 30px rgba(255, 255, 255, 0.7),
+                0 0 60px rgba(255, 255, 255, 0.5);
+            animation: float11 42s linear infinite;
+        }
+
+        .cloud-11::before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.3) 100%);
+            border-radius: 25px;
+            top: -25px;
+            left: 40px;
+            box-shadow: 
+                0 0 30px rgba(255, 255, 255, 0.7),
+                0 0 60px rgba(255, 255, 255, 0.5);
+            filter: blur(2px);
+        }
+
+        .cloud-11::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 45px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.3) 100%);
+            border-radius: 22px;
+            top: -22px;
+            right: 40px;
+            box-shadow: 
+                0 0 30px rgba(255, 255, 255, 0.7),
+                0 0 60px rgba(255, 255, 255, 0.5);
+            filter: blur(2px);
+        }
+
+        /* Pileus Cloud */
+        .cloud-12 {
+            width: 260px;
+            height: 70px;
+            top: 5%;
+            left: 125%;
+            border-radius: 35px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.3) 100%);
+            box-shadow: 
+                0 0 35px rgba(255, 255, 255, 0.7),
+                0 0 70px rgba(255, 255, 255, 0.5);
+            animation: float12 44s linear infinite;
+        }
+
+        .cloud-12::before {
+            content: '';
+            position: absolute;
+            width: 110px;
+            height: 60px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.3) 100%);
+            border-radius: 30px;
+            top: -30px;
+            left: 45px;
+            box-shadow: 
+                0 0 35px rgba(255, 255, 255, 0.7),
+                0 0 70px rgba(255, 255, 255, 0.5);
+            filter: blur(2px);
+        }
+
+        .cloud-12::after {
+            content: '';
+            position: absolute;
+            width: 90px;
+            height: 55px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.3) 100%);
+            border-radius: 27px;
+            top: -27px;
+            right: 45px;
+            box-shadow: 
+                0 0 35px rgba(255, 255, 255, 0.7),
+                0 0 70px rgba(255, 255, 255, 0.5);
+            filter: blur(2px);
+        }
+
+        .hero h1, .hero p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Inflate', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+            letter-spacing: 0.05em;
+            text-shadow: none;
+            transform: none;
+            animation: none;
+            transition: none;
+        }
+
+        .hero p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        .main-content {
+            padding: 2rem 0;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            padding: 1.5rem;
+            border-radius: 50px;
+            background: white;
+            box-shadow: 
+                0 4px 8px rgba(0, 0, 0, 0.1),
+                0 0 20px rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-header::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0.4) 100%);
+            border-radius: 50px;
+            z-index: -1;
+            filter: blur(2px);
+        }
+
+        .section-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 6px 12px rgba(0, 0, 0, 0.15),
+                0 0 30px rgba(255, 255, 255, 0.9);
+        }
+
+        .section-header::after {
+            content: '+';
+            font-family: 'Inflate', sans-serif;
+            font-size: 2rem;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header.expanded::after {
+            content: '-';
+            font-family: 'Inflate', sans-serif;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .card-grid.expanded {
+            max-height: 2000px;
+            opacity: 1;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 8px 12px rgba(0, 0, 0, 0.1),
+                0 0 40px rgba(255, 200, 100, 0.3),
+                0 0 60px rgba(255, 150, 50, 0.2),
+                0 0 80px rgba(255, 100, 0, 0.1);
+        }
+
+        .card h3 {
+            font-family: 'Inflate', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .card p {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-list {
+            list-style: none;
+        }
+
+        .card-list li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .card-list li:before {
+            content: "•";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+        }
+
+        .card-list a {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .card-list a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+        }
+
+        @keyframes float1 {
+            0% { transform: translateX(0) scale(1); }
+            100% { transform: translateX(200%) scale(1); }
+        }
+
+        @keyframes float2 {
+            0% { transform: translateX(0) scale(1); }
+            100% { transform: translateX(-200%) scale(1); }
+        }
+
+        @keyframes float3 {
+            0% { transform: translateX(0) scale(1); }
+            100% { transform: translateX(200%) scale(1); }
+        }
+
+        @keyframes float4 {
+            0% { transform: translateX(0) scale(1); }
+            100% { transform: translateX(-200%) scale(1); }
+        }
+
+        @keyframes float5 {
+            0% { transform: translateX(0) scale(1); }
+            100% { transform: translateX(200%) scale(1); }
+        }
+
+        @keyframes float6 {
+            0% { transform: translateX(0) scale(1); }
+            100% { transform: translateX(-200%) scale(1); }
+        }
+
+        @keyframes float7 {
+            0% { transform: translateX(0) scale(1); }
+            100% { transform: translateX(200%) scale(1); }
+        }
+
+        @keyframes float8 {
+            0% { transform: translateX(0) scale(1); }
+            100% { transform: translateX(-200%) scale(1); }
+        }
+
+        @keyframes float9 {
+            0% { transform: translateX(0) scale(1); }
+            100% { transform: translateX(200%) scale(1); }
+        }
+
+        @keyframes float10 {
+            0% { transform: translateX(0) scale(1); }
+            100% { transform: translateX(-200%) scale(1); }
+        }
+
+        @keyframes float11 {
+            0% { transform: translateX(0) scale(1); }
+            100% { transform: translateX(200%) scale(1); }
+        }
+
+        @keyframes float12 {
+            0% { transform: translateX(0) scale(1); }
+            100% { transform: translateX(-200%) scale(1); }
+        }
+
+        .section-title {
+            font-family: 'Inflate', sans-serif;
+            font-size: 2.5rem;
+            font-weight: normal;
+            color: var(--text);
+            letter-spacing: 0.05em;
+        }
+    
+/* 🔧 FIX: card grid layout */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  overflow: visible;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-grid.expanded {
+  max-height: none;
+  overflow: visible;
+  opacity: 1;
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 🔧 FIX: parent containers */
+.section {
+  margin-bottom: 4rem;
+  overflow: visible;
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  overflow: visible;
+}
+
+.main-content {
+  padding: 2rem 0;
+  overflow: visible;
+}
+
+.card {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+</style>
+</head>
+<body>
+    <div class="clouds"></div>
+    <header>
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">Sui Eco</div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+        <div class="cloud cloud-4"></div>
+        <div class="cloud cloud-5"></div>
+        <div class="cloud cloud-6"></div>
+        <div class="cloud cloud-7"></div>
+        <div class="cloud cloud-8"></div>
+        <div class="cloud cloud-9"></div>
+        <div class="cloud cloud-10"></div>
+        <div class="cloud cloud-11"></div>
+        <div class="cloud cloud-12"></div>
+        <div class="container">
+            <h1>Launching a Sui App Handbook</h1>
+            <p>Your handbook to launching and growing on Sui from pre-launch, launch, to post launch.</p>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2 class="section-title">Pre-Launch</h2>
+                </div>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>1. How to Build</h3>
+                        <p>Get started building your project with technical resources.</p>
+                        <ul class="card-list">
+                            <li><a href="https://docs.sui.io/guides/developer/getting-started">Getting Started on Sui</a> - Official guide to start building on Sui</li>
+                            <li><a href="https://docs.sui.io/">Sui Docs</a> - Comprehensive documentation for Sui development</li>
+                            <li><a href="https://docs.enoki.mystenlabs.com/">Enoki Docs</a> - Documentation for Enoki's developer tools</li>
+                            <li><a href="https://docs.wal.app/">Walrus Docs</a> - Guide to building with Walrus infrastructure</li>
+                            <li><a href="https://move-book.com/">The Move Book</a> - Essential resource for learning Move programming language</li>
+                            <li><a href="https://github.com/sui-foundation/awesome-sui">Awesome Sui Repo</a> - Curated list of Sui resources and tools</li>
+                            <li><a href="https://github.com/account-tech/move-framework?ref=suidevhub.com">Account.Tech</a> - Framework for account abstraction on Sui</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>2. How to ask technical questions</h3>
+                        <p>Troubleshoot your code and get help from the community.</p>
+                        <ul class="card-list">
+                            <li><a href="https://forums.sui.io/">Sui Forums</a> - Official forum for technical discussions</li>
+                            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdWPf0H-t-QWV0Ik_5o86mKFlVNFsu_r5fyDxIL9BW_oSxpwA/viewform?ref=blog.sui.io">Engineering Office Hours</a> - Schedule time with Sui engineers</li>
+                            <li><a href="https://t.me/+0nOcTAVMFvFmYTlh">Suinami Riders Telegram Channel</a> - Technical support for founders</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>3. Sui Founder Resources</h3>
+                        <p>Essential resources and guides for founders building on Sui.</p>
+                        <ul class="card-list">
+                            <li><a href="https://suifoundation.notion.site/Sui-Founder-Starter-Pack-1a337af41c6e8045ba8eee534eaafb07">Sui Founder Starter Pack</a> - Comprehensive guide for new founders</li>
+                            <li><a href="https://suifoundation.notion.site/Sui-Founders-Hub-10737af41c6e80978a4ece41c34f0377">Sui Founders Hub</a> - Central hub for founder resources</li>
+                            <li><a href="https://suifoundation.notion.site/FAQ-Sui-Resources-19037af41c6e801faaa6e08456efd2cd">Quick Start Sui Resources</a> - Quick reference guide for Sui development</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>4. Join the Community</h3>
+                        <p>Start engaging with the Sui community and build your own following.</p>
+                        <ul class="card-list">
+                            <li><a href="https://suins.io/">Claim your Sui Name</a> - Get your unique Sui domain name</li>
+                            <li><a href="https://discord.com/invite/sui">Discord</a> - Join the official Sui Discord community</li>
+                            <li><a href="https://giverep.com/">Community List</a> - Discover active community members and projects</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>5. Developer Tools</h3>
+                        <p>Essential tools and SDKs for building on Sui.</p>
+                        <ul class="card-list">
+                            <li><a href="https://sdk.mystenlabs.com/dapp-kit">dApp Kit</a> - Toolkit for building dApps on Sui</li>
+                            <li><a href="https://docs.sui.io/references/rust-sdk">Rust SDK</a> - Rust development tools for Sui</li>
+                            <li><a href="https://docs.sui.io/standards/wallet-standard">Sui Wallet</a> - Standard for Sui wallet integration</li>
+                            <li><a href="https://docs.sui.io/standards/kiosk">Sui Kiosk</a> - Framework for digital asset trading</li>
+                            <li><a href="https://docs.sui.io/standards/deepbook">DeepBook</a> - Order book protocol for Sui</li>
+                            <li><a href="https://docs.sui.io/concepts/cryptography/zklogin">zkLogin</a> - Zero-knowledge authentication system</li>
+                            <li><a href="https://sui.io/developers#dev-tools">All SDKs and developer tools</a> - Complete suite of development resources</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>6. Deploy on testnet</h3>
+                        <p>Start your deployment on testnet before going live on mainnet.</p>
+                        <ul class="card-list">
+                            <li><a href="https://docs.sui.io/guides/developer/getting-started/connect">Getting Started with Testnet</a> - Guide to deploying on testnet</li>
+                            <li><a href="https://faucet.sui.io/">Sui Public Faucet</a> - Official faucet for testnet SUI</li>
+                            <li><a href="http://faucet.n1stake.com/">3rd Party Faucet (N1Stake)</a> - Alternative faucet service</li>
+                            <li><a href="http://faucet.blockbolt.io/">3rd Party Faucet (BlockBolt)</a> - Additional faucet option</li>
+                            <li><a href="https://developers.circle.com/stablecoins/usdc-on-test-networks">Testnet USDC on Sui</a> - Access testnet USDC for development</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>7. Audits</h3>
+                        <p>Preferred audit partners for Sui Move.</p>
+                        <ul class="card-list">
+                            <li><a href="https://asymptotic.tech/">Asymptotic</a> - Security auditing for blockchain projects</li>
+                            <li><a href="https://movebit.xyz/">MoveBit</a> - Specialized Move language security audits</li>
+                            <li><a href="https://osec.io/">OtterSec</a> - Comprehensive security auditing services</li>
+                            <li><a href="https://www.zellic.io/">Zellic</a> - Advanced security research and auditing</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>8. Messaging and brand guidelines</h3>
+                        <p>Official guidelines and resources for Sui ecosystem projects.</p>
+                        <ul class="card-list">
+                            <li><a href="https://suifoundation.notion.site/Sui-Foundation-Co-Marketing-Guidelines-88e535af72434261992c461886d78a9e">Sui Foundation Co-Marketing Guidelines</a> - Official marketing guidelines</li>
+                            <li><a href="https://sui.io/media-kit">Brand Kit</a> - Official logos and brand assets</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>9. Rewards and bounties, RFPs</h3>
+                        <p>Opportunities for developers and researchers in the Sui ecosystem.</p>
+                        <ul class="card-list">
+                            <li><a href="https://firstmovers.notion.site/bounties?v=1b825e7d388681e69ee3000c697438ca">First Mover Bounties</a> - Earn rewards for building on Sui</li>
+                            <li><a href="https://sui.io/bug-bounty-program">Sui Bug Bounties</a> - Report security issues and earn rewards</li>
+                            <li><a href="https://sui.io/request-for-proposals">Request for Proposals</a> - Submit proposals for ecosystem funding</li>
+                            <li><a href="https://sui.io/research-awards">Academic Research Awards</a> - Funding for academic research on Sui</li>
+                            <li><a href="https://hydropower.sui.io/">Hydropower</a> - Accelerator program for Sui founders of all stages</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2 class="section-title">Launch</h2>
+                </div>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>1. Deploy to mainnet</h3>
+                        <p>Launch your project on Sui Mainnet.</p>
+                        <ul class="card-list">
+                            <li><a href="https://docs.sui.io/guides/developer/getting-started/connect">Launch on Sui Mainnet</a> - Guide to deploying on mainnet</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>2. Celebrate launch</h3>
+                        <p>Share your launch with the Sui community and get amplified.</p>
+                        <ul class="card-list">
+                            <li><a href="https://www.notion.so/Sui-Foundation-Co-Marketing-Guidelines-88e535af72434261992c461886d78a9e?pvs=21">Brand Guidelines</a> - Official guidelines for launch announcements</li>
+                            <li><a href="https://x.com/SuiFamOfficial">Tag @SuiFamOfficial on X</a> - Get featured on official Sui channels</li>
+                            <li><a href="https://x.com/firstmovers_">Tag @firstmovers_ on X</a> - Share with First Movers community</li>
+                            <li><a href="https://discord.com/invite/sui">Join Discord</a> - Announce in official Sui Discord</li>
+                            <li><a href="https://giverep.com/">Engage with Sui Ambassadors</a> - Connect with community leaders</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>3. Integrated with wallets and engage across chains</h3>
+                        <p>Connect with users through various wallets and services.</p>
+                        <ul class="card-list">
+                            <li><a href="https://suiwallet.com/">Sui Wallet</a> - Official Sui wallet by Mysten Labs</li>
+                            <li><a href="https://getstashed.com/home?ref=blog.sui.io">Stashed</a> - Mysten labs wallet to send SUI with just a link</li>
+                            <li><a href="https://backpack.app/?ref=blog.sui.io">Backpack</a> - Multi-chain wallet with Sui integration</li>
+                            <li><a href="https://www.dynamic.xyz/blog/dynamic-adds-sui-wallet-support">Dynamic</a> - Embedded wallet solution</li>
+                            <li><a href="https://www.ledger.com/coin/wallet/sui">Ledger</a> - Hardware wallet support</li>
+                            <li><a href="https://nightly.app/?ref=blog.sui.io">Nightly</a> - Multi-chain wallet platform</li>
+                            <li><a href="https://www.okx.com/en-us/web3/wallet/sui?ref=blog.sui.io">OKX Wallet</a> - Exchange wallet with Sui support</li>
+                            <li><a href="https://phantom.com/?ref=blog.sui.io">Phantom</a> - Popular wallet with Sui integration</li>
+                            <li><a href="https://suiet.app/?ref=blog.sui.io">Suiet</a> - Native Sui wallet app</li>
+                            <li><a href="https://waveonsui.com/?ref=blog.sui.io">Wave Wallet</a> - Mobile-first Sui wallet</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>4. Make it easy for users to get on chain</h3>
+                        <p>Tools and services to help users get started with your project.</p>
+                        <ul class="card-list">
+                            <li><a href="https://enoki.mystenlabs.com/">Enoki</a> - Sponsored gas and credits for users</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>5. Onramps for users to easy buy and sell SUI</h3>
+                        <p>The following is a list of payment processors that support SUI. Note that availability is dependent on the country you are in.</p>
+                        <ul class="card-list">
+                            <li><a href="https://www.moonpay.com/?ref=blog.sui.io">MoonPay</a> - Popular fiat onramp solution</li>
+                            <li><a href="https://transak.com/buy/sui?ref=blog.sui.io">Transak</a> - Global payment gateway</li>
+                            <li><a href="https://banxa.com/?ref=blog.sui.io">Banxa</a> - Multi-currency payment processing</li>
+                            <li><a href="https://help.coinbase.com/en/coinbase/trading-and-funding/coinbase-pay/using-onramp?ref=blog.sui.io">Coinbase Pay</a> - Direct integration with Coinbase</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <h2 class="section-title">Post-Launch</h2>
+                </div>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>1. Submit your project to the Sui eco page</h3>
+                        <p>Get your project listed on the official Sui ecosystem page.</p>
+                        <ul class="card-list">
+                            <li><a href="https://suifam.io/ecosystem">Sui Ecosystem Page</a> - Submit your project for listing</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>2. Analytics tools</h3>
+                        <p>Track and analyze your project's performance on Sui.</p>
+                        <ul class="card-list">
+                            <li><a href="https://suiscan.xyz/mainnet/home">SuiScan</a> - Block explorer and analytics</li>
+                            <li><a href="https://suivision.xyz/">SuiVision</a> - Advanced analytics dashboard</li>
+                            <li><a href="https://app.artemis.xyz/project/sui">Artemis</a> - Comprehensive analytics platform</li>
+                            <li><a href="https://docs.goldsky.com/chains/sui">Goldsky</a> - Real-time data indexing</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>3. Get featured</h3>
+                        <p>Increase your project's visibility through various channels.</p>
+                        <ul class="card-list">
+                            <li><a href="https://x.com/firstmovers_">First Movers ecosystem call</a> - bi-weekly/monthly live community showcase</li>
+                            <li><a href="https://x.com/suifamofficial">SuiFamOfficial</a> - Sui community social channel highlighting builders and projects</li>
+                            <li><a href="https://x.com/SuiNetwork">Sui Network</a> - Official Sui social channel highlighting official partners and breaking milestones</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        function toggleSection(header) {
+            const cardGrid = header.nextElementSibling;
+            const isExpanded = header.classList.contains('expanded');
+            
+            // Close all other sections
+            document.querySelectorAll('.section-header').forEach(h => {
+                if (h !== header) {
+                    h.classList.remove('expanded');
+                    h.nextElementSibling.classList.remove('expanded');
+                }
+            });
+            
+            // Toggle current section
+            header.classList.toggle('expanded');
+            cardGrid.classList.toggle('expanded');
+        }
+    </script>
+</body>
+</html>
